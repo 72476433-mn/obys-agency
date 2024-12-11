@@ -1,4 +1,6 @@
-let tl = gsap.timeline();
+
+function loadingAnimation(){
+  let tl = gsap.timeline();
 
 gsap.from(".line h1", {
   y: 150,
@@ -25,17 +27,40 @@ tl.from(".line1-part1", {
   },
 });
 
-tl.to(".line h2",{
-  delay:7,
-  opacity:0,
-  Animation:"anime"
-})
 
 tl.to("#loader", {
   y: -1200,
   delay: 2.9,
   opacity: 0,
-  duration: 2,
-  display:"none"
+  duration: 2
 });
+
+tl.to(".line h2",{
+  opacity:0,
+  Animation:"anime"
+})
+
+gsap.to("#loader",{
+
+})
+
+tl.from(".hero h1",{
+  y:120,
+  stagger:0.2,
+})
+}
+loadingAnimation();
+
+
+function cursorAnimation(){
+  document.addEventListener("mousemove",function(dets) {
+    gsap.to("#crsr",{
+      x:dets.x,
+      y:dets.y
+    })
+  });
+
+  Shery.makeMagnet("#nav-part2 h4",{});
+}
+cursorAnimation();
 
